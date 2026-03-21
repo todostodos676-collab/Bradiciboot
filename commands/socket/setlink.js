@@ -1,5 +1,5 @@
 export default {
-  command: ['setstatus'],
+  command: ['setlink', 'setbotlink'],
   category: 'socket',
   run: async (client, m, args) => {
     const idBot = client.user.id.split(':')[0] + '@s.whatsapp.net'
@@ -7,8 +7,13 @@ export default {
     const isOwner2 = [idBot, ...(config.owner ? [config.owner] : []), ...global.owner.map(num => num + '@s.whatsapp.net')].includes(m.sender)
     if (!isOwner2) return m.reply(mess.socket)
     const value = args.join(' ').trim()
-    if (!value) return m.reply(`✐ Debes escribir un estado valido.\n> Ejemplo: *${usedPrefix + command} Hola! soy Yuki Suou*`)
-    await client.updateProfileStatus(value)
-    return m.reply(`✿ Se ha actualizado el estado del bot a *${value}*!`)
+    if (!value) {
+      return m.reply(`✿ Ingresa un enlace válido que comience con http:// o https://`)
+    }
+    if (!/^https?:\/\//i.test(value)) {
+      return m.reply('✿ El enlace debe comenzar con http:// o https://')
+    }
+    config.link = value
+    return m.reply(`✎ Se cambió el enlace del Socket correctamente.`)
   },
 };

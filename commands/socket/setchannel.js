@@ -14,7 +14,6 @@ export default {
     if (!channelUrl) return m.reply('ꕥ El enlace proporcionado no es válido.')
     const info = await client.newsletterMetadata("invite", channelUrl)
     if (!info) return m.reply('ꕥ No se pudo obtener información del canal.')
-    config.link = value
     config.id = info.id
     config.nameid = info.thread_metadata?.name?.text || "Canal sin nombre"
     return m.reply(`❀ Se cambió el canal del Socket a *"${config.nameid}"* correctamente.`)
