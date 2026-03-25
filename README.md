@@ -146,6 +146,26 @@ cd && cd YukiBot-MD && rm -rf Sessions/Owner && npm start
 ### Patrocinadores del Proyecto
 
 <details>
+<summary><strong>☁️ Yuki</strong> — API</summary>
+
+<div align="center">
+  <a href="https://api.yuki-wabot.my.id">
+    <img src="https://api.yuki-wabot.my.id/favicon.ico" alt="Logo" height="125px">
+  </a>
+</div>
+
+### 🌱 Enlaces Principales
+| Servicio | Enlace |
+|------------|-----------|
+| Dashboard | [Abrir](https://api.yuki-wabot.my.id) |
+| Store | [Abrir](https://api.yuki-wabot.my.id/store) 
+| Soporte | [Visitar](https://api.yuki-wabot.my.id/ticket)  
+| Estado de Servicios | [Ver](https://api.yuki-wabot.my.id/stats) |
+| Canal | [Abrir](https://stellarwa.xyz/channel/yuki) 
+
+</details>
+
+<details>
 <summary><strong>☁️ Stellar</strong> — API</summary>
 
 <div align="center">
@@ -162,6 +182,26 @@ cd && cd YukiBot-MD && rm -rf Sessions/Owner && npm start
 | Soporte | [Visitar](https://api.stellarwa.xyz/ticket)  
 | Estado de Servicios | [Ver](https://api.stellarwa.xyz/stats) |
 | Canal | [Abrir](https://stellarwa.xyz/channel/api) 
+
+</details>
+
+<details>
+<summary><strong>☁️ Akirax</strong> — Hosting</summary>
+
+<div align="center">
+  <a href="https://home.akirax.net">
+    <img src="https://cdn2.sockywa.xyz/JG8PX.jpeg" alt="Logo" height="125px">
+  </a>
+</div>
+
+### 🐋 Enlaces Principales
+| Servicio | Enlace |
+|------------|-----------|
+| Sitio Web | [Visitar](https://docs.akirax.net) |
+| Home | [Abrir](https://home.akirax.net) |
+| Panel | [Abrir](https://console.akirax.net) | 
+| Soporte (Matías) | [Contactar](https://wa.me/5491164123932) |
+| Canal de WhatsApp | [Unirse](https://whatsapp.com/channel/0029VaYTBn3DZ4LaHbgzxw0B) |
 
 </details>
 
@@ -190,30 +230,10 @@ cd && cd YukiBot-MD && rm -rf Sessions/Owner && npm start
 
 </details>
 
-<details>
-<summary><strong>☁️ Akirax</strong> — Hosting</summary>
-
-<div align="center">
-  <a href="https://home.akirax.net">
-    <img src="https://cdn2.sockywa.xyz/JG8PX.jpeg" alt="Logo" height="125px">
-  </a>
-</div>
-
-### 🐋 Enlaces Principales
-| Servicio | Enlace |
-|------------|-----------|
-| Sitio Web | [Visitar](https://docs.akirax.net) |
-| Home | [Abrir](https://home.akirax.net) |
-| Panel | [Abrir](https://console.akirax.net) | 
-| Soporte (Matías) | [Contactar](https://wa.me/5491164123932) |
-| Canal de WhatsApp | [Unirse](https://whatsapp.com/channel/0029VaYTBn3DZ4LaHbgzxw0B) |
-
-</details>
-
 ---
 
 ### 🦋 Colaboradores
-<a href="https://api.stellarwa.xyz">
+<a href="https://api.yuki-wabot.my.id>
   <img src="https://contrib.rocks/image?repo=iamDestroy/YukiBot-MD" />
 </a>
 
