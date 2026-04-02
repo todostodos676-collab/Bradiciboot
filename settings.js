@@ -2,12 +2,12 @@ import fs from 'fs';
 import { watchFile, unwatchFile } from 'fs'
 import { fileURLToPath } from 'url'
 
-global.owner = ['573196588149', '5492916450307', '5216671548329', '573247662531', '51921826291', '50493732693']
+global.owner = ['573196588149', '5492916450307', '5216671548329', '573247662531', '51921826291', '50493732693','56151412184']
 global.botNumber = ''
 
 global.sessionName = 'Sessions/Owner'
 global.version = '^2.0 - Latest'
-global.dev = "© ⍴᥆ᥕᥱrᥱძ ᑲᥡ ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"
+global.dev = "© ⍴᥆ᥕᥱrᥱძ ᑲᥡ Bradiciboot"
 global.links = {
 api: 'https://api.yuki-wabot.my.id',
 channel: "https://whatsapp.com/channel/0029Vb64nWqLo4hb8cuxe23n",
