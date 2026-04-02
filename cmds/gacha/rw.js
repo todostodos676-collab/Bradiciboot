@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { promises as fs } from 'fs';
 
-const FILE_PATH = './lib/characters.json';
+const FILE_PATH = './core/characters.json';
 const rollLocks = new Map();
 
 function cleanOldLocks() {

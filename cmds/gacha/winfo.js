@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import { promises as fs } from 'fs'
 
-const FILE_PATH = './lib/characters.json'
+const FILE_PATH = './core/characters.json'
 async function loadCharacters() {
   try {
     await fs.access(FILE_PATH)

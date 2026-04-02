@@ -1,4 +1,4 @@
-import { resolveLidToRealJid } from "../../lib/utils.js"
+import { resolveLidToRealJid } from "../../core/utils.js"
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url'

@@ -1,5 +1,5 @@
 import moment from 'moment-timezone';
-import { resolveLidToRealJid } from "../../lib/utils.js"
+import { resolveLidToRealJid } from "../../core/utils.js"
 
 const growth = Math.pow(Math.PI / Math.E, 1.618) * Math.E * 0.75
 function xpRange(level, multiplier = global.multiplier || 2) {

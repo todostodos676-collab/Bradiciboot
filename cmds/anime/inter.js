@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import { resolveLidToRealJid } from "../../lib/utils.js"
+import { resolveLidToRealJid } from "../../core/utils.js"
 
 const captions = {
   peek: (from, to, genero) => from === to ? 'está espiando detrás de una puerta por diversión.' : `está espiando a`,

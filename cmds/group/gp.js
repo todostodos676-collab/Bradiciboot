@@ -34,7 +34,7 @@ export default {
         totalCoins += Number(user.coins) || 0;
       }
     });
-    const charactersFilePath = './lib/characters.json'
+    const charactersFilePath = './core/characters.json'
     const data = await fs.promises.readFile(charactersFilePath, 'utf-8')
     const structure = JSON.parse(data)
     const allCharacters = Object.values(structure).flatMap(s => Array.isArray(s.characters) ? s.characters : [])

@@ -1,6 +1,6 @@
 import fetch from "node-fetch"
 import cheerio from "cheerio"
-import { getBuffer } from "../../lib/message.js"
+import { getBuffer } from "../../core/message.js"
 
 export default {
   command: ["xvideos"],

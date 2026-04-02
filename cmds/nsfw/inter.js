@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
-import { resolveLidToRealJid } from "../../lib/utils.js";
+import { resolveLidToRealJid } from "../../core/utils.js";
 
 const captions = {      
   anal: (from, to) => from === to ? 'se la metió en el ano.' : 'se la metió en el ano a',
@@ -94,7 +94,7 @@ export default {
     const captionText = captions[currentCommand](fromName, toName, genero);
     const caption = who !== m.sender ? `\`${fromName}.\` ${captionText} \`${toName}.\` ${getRandomSymbol()}.` : `\`${fromName}\` ${captionText} ${getRandomSymbol()}.`;
     try {
-    const nsfw = './lib/nsfw.json'
+    const nsfw = './core/nsfw.json'
     const nsfwData = JSON.parse(fs.readFileSync(nsfw))
       const videos = nsfwData[currentCommand];      
       const randomVideo = videos[Math.floor(Math.random() * videos.length)];

@@ -1,5 +1,5 @@
 let proposals = {}
-import { resolveLidToRealJid } from "../../lib/utils.js"
+import { resolveLidToRealJid } from "../../core/utils.js"
 
 export default {
   command: ['marry', 'casarse'],

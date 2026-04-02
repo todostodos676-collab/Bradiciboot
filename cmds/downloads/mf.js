@@ -1,7 +1,7 @@
 import axios from 'axios'
 import path from 'path'
 import { lookup } from 'mime-types'
-import { getBuffer } from '../../lib/message.js'
+import { getBuffer } from '../../core/message.js'
 import cheerio from 'cheerio'
 
 export default {

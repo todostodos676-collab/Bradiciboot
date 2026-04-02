@@ -4,11 +4,11 @@ import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 import gradient from 'gradient-string';
-import seeCommands from './lib/system/commandLoader.js';
-import initDB from './lib/system/initDB.js';
+import seeCommands from './core/system/commandLoader.js';
+import initDB from './core/system/initDB.js';
 import antilink from './cmds/antilink.js';
 import level from './cmds/level.js';
-import { getGroupAdmins } from './lib/message.js';
+import { getGroupAdmins } from './core/message.js';
 
 seeCommands();
 

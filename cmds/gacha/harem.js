@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs'
-import { resolveLidToRealJid } from "../../lib/utils.js"
+import { resolveLidToRealJid } from "../../core/utils.js"
 
-const charactersFilePath = './lib/characters.json'
+const charactersFilePath = './core/characters.json'
 async function loadCharacters() {
   const data = await fs.readFile(charactersFilePath, 'utf-8')
   return JSON.parse(data)

@@ -1,4 +1,4 @@
-import { resolveLidToRealJid } from "../../lib/utils.js"
+import { resolveLidToRealJid } from "../../core/utils.js"
 
 export async function before(m, { client }) {
 const botJid = client.user.id.split(':')[0] + '@s.whatsapp.net'

@@ -1,5 +1,5 @@
 import { search, download } from 'aptoide-scraper'
-import { getBuffer } from "../../lib/message.js"
+import { getBuffer } from "../../core/message.js"
 
 export default {
   command: ['apk', 'aptoide', 'apkdl'],

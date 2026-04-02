@@ -1,6 +1,6 @@
 import yts from 'yt-search'
 import fetch from 'node-fetch'
-import { getBuffer } from '../../lib/message.js'
+import { getBuffer } from '../../core/message.js'
 
 const isYTUrl = (url) => /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/i.test(url)
 async function getVideoInfo(query, videoMatch) {
