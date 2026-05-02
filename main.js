@@ -26,7 +26,7 @@ export default async (client, m) => {
   const user = global.db.data.users[sender] ||= {}
   const users = chat.users[sender] || {}
   const pushname = m.pushName || 'Sin nombre';
-  
+
   let groupMetadata = null
   let groupAdmins = []
   let groupName = ''
@@ -54,7 +54,7 @@ export default async (client, m) => {
   if (!users.stats) users.stats = {};
   if (!users.stats[today]) users.stats[today] = { msgs: 0, cmds: 0 };
   users.stats[today].msgs++;
-  
+
   const rawBotname = settings.namebot || 'Yuki';
   const tipo = settings.type || 'Sub';
   const cleanBotname = rawBotname.replace(/[^a-zA-Z0-9\s]/g, '')
@@ -100,14 +100,15 @@ export default async (client, m) => {
   let command = (args.shift() || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   let text = args.join(' ');
   if (!command) return;
-  
+
   const chatData = global.db.data.chats[from] || {};
   const consolePrimary = chatData.primaryBot;
   if (m.message || !consolePrimary || consolePrimary === botJid) {
     console.log(chalk.bold.blue(`╭────────────────────────────···\n│ ${chalk.cyan('Bot')}: ${gradient('lime', 'green')(botJid)}\n│ ${chalk.bold.yellow('Fecha')}: ${gradient('orange', 'yellow')(moment().format('DD/MM/YY HH:mm:ss'))}\n│ ${chalk.bold.blueBright('Usuario')}: ${gradient('cyan', 'blue')(pushname)}\n│ ${chalk.bold.magentaBright('Remitente')}: ${gradient('deepskyblue', 'darkorchid')(sender)}\n${m.isGroup ? '│' + chalk.bold.green(' Grupo') + ': ' + gradient('green', 'lime')(groupName) : '│' + chalk.bold.green(' Privado') + ': ' + gradient('pink', 'magenta')('Chat Privado')}\n${'│' + chalk.bold.magenta(' ID') + ': ' + gradient('violet', 'midnightblue')(m.isGroup ? from : 'Chat Privado')}\n│ ${chalk.bold.cyanBright('Comando usado')}: ${chalk.gray(command ? command : 'No Command')}\n╰────────────────────────────···\n`));
   }
-  
+
   const hasPrefix = settings.prefix === true ? true : (Array.isArray(settings.prefix) ? settings.prefix : typeof settings.prefix === 'string' ? [settings.prefix] : []).some(p => m.text?.startsWith(p));
+
   function getAllSessionBots() {
     const sessionDirs = ['./Sessions/Subs']
     let bots = []
@@ -131,6 +132,7 @@ export default async (client, m) => {
     } catch {}
     return bots;
   }
+
   const botprimaryId = chat?.primaryBot
   if (botprimaryId && botprimaryId !== botJid) {
     if (hasPrefix) {
@@ -138,44 +140,46 @@ export default async (client, m) => {
       const primaryInGroup = participants.some(p => (p.phoneNumber || p.id) === botprimaryId)
       const isPrimarySelf = botprimaryId === botJid
       const primaryInSessions = getAllSessionBots().includes(botprimaryId)
-      if (!primaryInSessions || !primaryInGroup) {
-        return
-      }
-      if ((primaryInSessions && primaryInGroup) || isPrimarySelf) {
-        return;
-      }
+      if (!primaryInSessions || !primaryInGroup) return
+      if ((primaryInSessions && primaryInGroup) || isPrimarySelf) return
     }
   }
-  
+
   if (!isOwners && settings.self) return;  
   if (m.chat && !m.chat.endsWith('g.us')) {
-    const allowedInPrivateForUsers = ['allmenu', 'help', 'menu', 'infobot', 'botinfo', 'invite', 'invitar', 'ping', 'speed', 'p', 'status', 'estado', 'report', 'reporte', 'sug', 'suggest', 'token', 'join', 'unir', 'logout', 'reload', 'self', 'setbanner', 'setbotbanner', 'setchannel', 'setbotchannel', 'setbotcurrency', 'setcurrency', 'seticon', 'setboticon', 'setlink', 'setbotlink', 'setbotname', 'setname', 'setbotowner', 'setowner', 'setimage', 'setpfp', 'setprefix', 'setbotprefix', 'setstatus', 'setusername', 'code', 'qr']
+    const allowedInPrivateForUsers = ['allmenu','help','menu','infobot','botinfo','invite','invitar','ping','speed','p','status','estado','report','reporte','sug','suggest','token','join','unir','logout','reload','self','setbanner','setbotbanner','setchannel','setbotchannel','setbotcurrency','setcurrency','seticon','setboticon','setlink','setbotlink','setbotname','setname','setbotowner','setowner','setimage','setpfp','setprefix','setbotprefix','setstatus','setusername','code','qr']
     if (!global.owner.map(num => num + '@s.whatsapp.net').includes(sender) && !allowedInPrivateForUsers.includes(command)) return;
   }
+
   if (chat?.isBanned && !(command === 'bot' && text === 'on') && !global.owner.map(num => num + '@s.whatsapp.net').includes(sender)) {
     await m.reply(`ꕥ El bot *${settings.botname}* está desactivado en este grupo.\n\n> ✎ Un *administrador* puede activarlo con el comando:\n> » *${usedPrefix}bot on*`);
     return;
   }
+
   if (m.text && user.banned && !global.owner.map(num => num + '@s.whatsapp.net').includes(sender)) {
-    await m.reply(`ꕥ Estas ${user.genre === 'Mujer' ? 'baneada' : user.genre === 'Hombre' ? 'baneado' : 'baneado/a'}, no puedes usar comandos en este bot!\n\n> ● *Razón ›* ${user.bannedReason || 'Sin especificar'}\n\n> ● Si este Bot es cuenta oficial y tienes evidencia que respalde que este mensaje es un error, puedes exponer tu caso con un moderador.`);
+    await m.reply(`ꕥ Estas ${user.genre === 'Mujer' ? 'baneada' : user.genre === 'Hombre' ? 'baneado' : 'baneado/a'}, no puedes usar comandos en este bot!\n\n> ● *Razón ›* ${user.bannedReason || 'Sin especificar'}`);
     return;
   }
 
   if (!users.stats) users.stats = {};
   if (!users.stats[today]) users.stats[today] = { msgs: 0, cmds: 0 }; 
   if (chat.adminonly && !isAdmins) return;
+
   const cmdData = global.comandos.get(command);
   if (!cmdData) {
     if (settings.prefix === true) return;
     await client.readMessages([m.key]);
-    return m.reply(`ꕤ El comando *${command}* no existe.\n✎ Usa *${usedPrefix}help* para ver la lista de comandos disponibles.`);
+    return;
   }
+
   if (cmdData.isOwner && !global.owner.map(num => num + '@s.whatsapp.net').includes(sender)) {
     if (settings.prefix === true) return;
-    return m.reply(`ꕤ El comando *${command}* no existe.\n✎ Usa *${usedPrefix}help* para ver la lista de comandos disponibles.`);
+    return;
   }
+
   if (cmdData.isAdmin && !isAdmins) return client.reply(m.chat, mess.admin, m);
   if (cmdData.botAdmin && !isBotAdmins) return client.reply(m.chat, mess.botAdmin, m);
+
   try {
     await client.readMessages([m.key]);
     user.usedcommands = (user.usedcommands || 0) + 1;
@@ -189,5 +193,6 @@ export default async (client, m) => {
   } catch (error) {
     await client.sendMessage(m.chat, { text: `《✧》 Error al ejecutar el comando\n${error}` }, { quoted: m });
   }
+
   level(m);
 };
