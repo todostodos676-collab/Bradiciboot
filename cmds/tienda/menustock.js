@@ -87,7 +87,12 @@ const menu = `╭┈┈⊰  🌷 𝗩𝗘𝗡𝗧𝗔𝗦 🌷
 ┊ 🌷 ${usedPrefix}youtube
 ╰┈┈⊰ 🌷`
 
-await m.reply(menu)
+//await m.reply(menu)
+
+await client.sendMessage(m.chat, {
+  image: { url: 'https://cdn.yuki-wabot.my.id/files/Q4SH.jpeg' },
+  caption: menu
+}, { quoted: m })
 
 },
 }
